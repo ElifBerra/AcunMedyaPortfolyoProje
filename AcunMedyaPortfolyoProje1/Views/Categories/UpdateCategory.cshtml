@@ -1,0 +1,17 @@
+﻿@model AcunMedyaPortfolyoProje1.Models.Tbl_Category
+
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>UpdateCategory</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.CategoryID)
+    <label>Category Name</label>
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })<br />
+
+
+    <button>Güncelle</button>
+</form>

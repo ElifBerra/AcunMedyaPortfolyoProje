@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2 style="color: #333; text-align: center;">İstatistik Sayfası</h2>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">Kategori Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #007bff;">@ViewBag.categoryCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastCategory</div>
+    </div>
+    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">Referans Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #28a745;">@ViewBag.testimonialCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastTestimonial</div>
+    </div>
+    @*<div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">Proje Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #dc3545;">@ViewBag.projectCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastProject</div>
+    </div>*@
+    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">İş Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #ff9800;">@ViewBag.jobCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastJob</div>
+    </div>
+    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">Hizmet Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #17a2b8;">@ViewBag.serviceCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastService</div>
+    </div>
+    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">Yetenek Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #6f42c1;">@ViewBag.skillCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastSkill</div>
+    </div>
+    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="font-size: 18px; font-weight: bold; color: #555;">Mesaj Sayısı</div>
+        <div style="font-size: 24px; font-weight: bold; color: #e91e63;">@ViewBag.messageCount</div>
+        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastMessage</div>
+    </div>
+</div>
+
