@@ -2,45 +2,109 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 }
 
-<h2 style="color: #333; text-align: center;">İstatistik Sayfası</h2>
 
-<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">Kategori Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #007bff;">@ViewBag.categoryCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastCategory</div>
+
+<div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 20px;">
+
+    <!-- kategori -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-folder-open"></i> KATEGORİLER
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold;">Kategori Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold;">@ViewBag.categoryCount</div>
+            <div style="font-size: 14px;">Son Eklenen: @ViewBag.lastCategory</div>
+        </div>
     </div>
-    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">Referans Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #28a745;">@ViewBag.testimonialCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastTestimonial</div>
+
+    <!-- Referans -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-link"></i> REFERANSLAR
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold;">Referans Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold;">@ViewBag.testimonialCount</div>
+            <div style="font-size: 14px; ">Son Eklenen: @ViewBag.lastTestimonial</div>
+        </div>
     </div>
-    @*<div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">Proje Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #dc3545;">@ViewBag.projectCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastProject</div>
-    </div>*@
-    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">İş Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #ff9800;">@ViewBag.jobCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastJob</div>
+
+    <!-- Proje -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-tasks"></i> PROJELER
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold; ">Proje Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold; ">@ViewBag.projectCount</div>
+            <div style="font-size: 14px;">Son Eklenen: @ViewBag.lastProject</div>
+        </div>
     </div>
-    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">Hizmet Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #17a2b8;">@ViewBag.serviceCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastService</div>
+
+    <!-- İş -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-briefcase"></i> İŞLER
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold; ">İş Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold; ">@ViewBag.jobCount</div>
+            <div style="font-size: 14px;">Son Eklenen: @ViewBag.lastJob</div>
+        </div>
     </div>
-    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">Yetenek Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #6f42c1;">@ViewBag.skillCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastSkill</div>
+
+    <!-- Hizmet -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-concierge-bell"></i> HİZMETLER
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold;">Hizmet Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold;">@ViewBag.serviceCount</div>
+            <div style="font-size: 14px; ">Son Eklenen: @ViewBag.lastService</div>
+        </div>
     </div>
-    <div style="width: 200px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-        <div style="font-size: 18px; font-weight: bold; color: #555;">Mesaj Sayısı</div>
-        <div style="font-size: 24px; font-weight: bold; color: #e91e63;">@ViewBag.messageCount</div>
-        <div style="font-size: 14px; color: #888;">Son Eklenen: @ViewBag.lastMessage</div>
+
+    <!-- Yetenek -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-lightbulb"></i> YETENEKLER
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold; ">Yetenek Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold; ">@ViewBag.skillCount</div>
+            <div style="font-size: 14px; ">Son Eklenen: @ViewBag.lastSkill</div>
+        </div>
     </div>
+
+    <!-- Mesaj -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-envelope"></i> MESAJLAR
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold; ">Mesaj Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold; ">@ViewBag.messageCount</div>
+            <div style="font-size: 14px; ">Son Eklenen: @ViewBag.lastMessage</div>
+        </div>
+    </div>
+
+    <!-- Eğitim -->
+    <div style="width: 350px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="padding: 10px 15px; font-weight: bold;">
+            <i class="fas fa-graduation-cap"></i> EĞİTİM
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <div style="font-size: 18px; font-weight: bold; ">Eğitim Sayısı</div>
+            <div style="font-size: 24px; font-weight: bold; ">@ViewBag.educationCount</div>
+            <div style="font-size: 14px; ">Son Eklenen: @ViewBag.lastEducation</div>
+        </div>
+    </div>
+
 </div>
 

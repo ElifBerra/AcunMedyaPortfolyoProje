@@ -31,10 +31,10 @@ namespace AcunMedyaPortfolyoProje1.Models
         public virtual DbSet<Tbl_Education> Tbl_Education { get; set; }
         public virtual DbSet<Tbl_Job> Tbl_Job { get; set; }
         public virtual DbSet<Tbl_Message> Tbl_Message { get; set; }
-        public virtual DbSet<Tbl_Project> Tbl_Project { get; set; }
         public virtual DbSet<Tbl_Services> Tbl_Services { get; set; }
         public virtual DbSet<Tbl_Skills> Tbl_Skills { get; set; }
         public virtual DbSet<Tbl_Slider> Tbl_Slider { get; set; }
         public virtual DbSet<Tbl_Testimonial> Tbl_Testimonial { get; set; }
+        public virtual DbSet<Tbl_Project> Tbl_Project { get; set; }
     }
 }
