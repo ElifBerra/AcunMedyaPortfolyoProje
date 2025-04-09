@@ -1332,32 +1332,38 @@ pre {
     margin-left: 91.66667%; } }
 
 .table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529; }
-  .table th,
-  .table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6; }
-  .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6; }
-  .table tbody + tbody {
-    border-top: 2px solid #dee2e6; }
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #d43076;
+}
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 5px solid #33081a;
+    }
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 7px solid #33081a;
+    }
+    .table tbody + tbody {
+        border-top: 7px solid #33081a;
+    }
 
 .table-sm th,
 .table-sm td {
   padding: 0.3rem; }
 
 .table-bordered {
-  border: 1px solid #dee2e6; }
-  .table-bordered th,
-  .table-bordered td {
-    border: 1px solid #dee2e6; }
+    border: 5px solid #33081a;
+}
+    .table-bordered th,
+    .table-bordered td {
+        border: 5px solid #33081a;
+    }
   .table-bordered thead th,
   .table-bordered thead td {
-    border-bottom-width: 2px; }
+    border-bottom-width: 7px; }
 
 .table-borderless th,
 .table-borderless td,
@@ -8133,12 +8139,13 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.8;
-  font-weight: normal;
-  background: #fafafa;
-  color: gray; }
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: normal;
+    background: #3b2938;
+    color: gray;
+}
 
 a {
   -webkit-transition: .3s all ease;
@@ -8207,14 +8214,15 @@ h1, h2, h3, h4, h5,
   width: 100%; }
 
 #sidebar {
-  min-width: 270px;
-  max-width: 270px;
-  background: #000000;
-  color: #fff;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-  position: relative; }
+    min-width: 270px;
+    max-width: 270px;
+    background: #2c0433;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative;
+}
   #sidebar .h6 {
     color: #fff; }
   #sidebar.active {
