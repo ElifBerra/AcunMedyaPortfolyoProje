@@ -56,6 +56,7 @@ namespace AcunMedyaPortfolyoProje1.Controllers
             value.Image1 = model.Image1;
             value.Image2 = model.Image2;
             value.Image3 = model.Image3;
+            value.Tbl_Category.CategoryName = model.Tbl_Category.CategoryName;
 
             db.SaveChanges();
             return RedirectToAction("Index");
