@@ -21,5 +21,13 @@ namespace AcunMedyaPortfolyoProje1.Models
         public string Image1 { get; set; }
         public string Image2 { get; set; }
         public string Image3 { get; set; }
+        public Nullable<int> CategoryID { get; set; }
+    
+        public virtual Tbl_Category Tbl_Category { get; set; }
+        public virtual Tbl_Category Tbl_Category1 { get; set; }
+        public virtual Tbl_Project Tbl_Project1 { get; set; }
+        public virtual Tbl_Project Tbl_Project2 { get; set; }
+        public virtual Tbl_Project Tbl_Project11 { get; set; }
+        public virtual Tbl_Project Tbl_Project3 { get; set; }
     }
 }

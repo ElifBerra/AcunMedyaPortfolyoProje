@@ -1,0 +1,53 @@
+﻿﻿﻿@model List<AcunMedyaPortfolyoProje1.Models.Tbl_Project>
+
+<section id="portfolio" class="portfolio section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Projeler</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-GameDevelopment">GameDevelopment</li>
+                <li data-filter=".filter-WebDevelopment">WebDevelopment</li>
+                <li data-filter=".filter-MobileDevelopment">MobileDevelopment</li>
+                <li data-filter=".filter-YapayZeka">YapayZeka</li>
+            </ul><!-- End Portfolio Filters -->
+
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                @foreach (var item in Model)
+                {
+
+
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@item.Tbl_Category.CategoryName">
+
+                        <img src="@item.Image1" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>@item.ProjectName</h4>
+                            <p>@item.Description</p>
+                            <a href="@item.Image3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="@item.Image2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="@item.Image1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+
+
+                            <a href="@item.ProjectLink" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+
+                }
+
+            </div><!-- End Portfolio Container -->
+
+        </div>
+
+    </div>
+
+</section>

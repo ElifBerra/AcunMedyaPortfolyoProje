@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4d536213a00746dabc42baeac46b2b8c" Name="Diagram1">
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_About" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Contact" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Education" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Job" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
@@ -15,7 +14,14 @@
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Skills" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Slider" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Testimonial" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Project" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbAcunMedyaProject1Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Category" Width="1.5" PointX="9.75" PointY="1.75" />
+        <EntityTypeShape EntityType="DbAcunMedyaProject1Model.Tbl_Project" Width="1.5" PointX="12" PointY="1" />
+        <AssociationConnector Association="DbAcunMedyaProject1Model.FK_Project_Category" />
+        <AssociationConnector Association="DbAcunMedyaProject1Model.FK_Tbl_Category_Tbl_Category" />
+        <AssociationConnector Association="DbAcunMedyaProject1Model.Tbl_Project_Tbl_Category" />
+        <AssociationConnector Association="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project" />
+        <AssociationConnector Association="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

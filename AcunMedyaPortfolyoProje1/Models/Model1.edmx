@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DbAcunMedyaProject1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Tbl_About">
           <Key>
             <PropertyRef Name="AboutID" />
@@ -83,6 +93,7 @@
           <Property Name="Image1" Type="nvarchar" MaxLength="500" />
           <Property Name="Image2" Type="nvarchar" MaxLength="500" />
           <Property Name="Image3" Type="nvarchar" MaxLength="500" />
+          <Property Name="CategoryID" Type="int" />
         </EntityType>
         <EntityType Name="Tbl_Services">
           <Key>
@@ -123,7 +134,68 @@
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="Title" Type="nvarchar" MaxLength="200" />
         </EntityType>
+        <Association Name="FK_Project_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Project" Type="Self.Tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Project">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="1" />
+          <End Role="Tbl_Category1" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Category1">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Project_Tbl_Project">
+          <End Role="Tbl_Project" Type="Self.Tbl_Project" Multiplicity="1" />
+          <End Role="Tbl_Project1" Type="Self.Tbl_Project" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Tbl_Project1">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Project_Tbl_Project1">
+          <End Role="Tbl_Project" Type="Self.Tbl_Project" Multiplicity="1" />
+          <End Role="Tbl_Project1" Type="Self.Tbl_Project" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Tbl_Project1">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tbl_Project_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Project" Type="Self.Tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Project">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DbAcunMedyaProject1ModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_About" EntityType="Self.Tbl_About" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" Schema="dbo" store:Type="Tables" />
@@ -135,6 +207,26 @@
           <EntitySet Name="Tbl_Skills" EntityType="Self.Tbl_Skills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Slider" EntityType="Self.Tbl_Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Testimonial" EntityType="Self.Tbl_Testimonial" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Project_Category" Association="Self.FK_Project_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Tbl_Category" Association="Self.FK_Tbl_Category_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Category1" EntitySet="Tbl_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Project_Tbl_Project" Association="Self.FK_Tbl_Project_Tbl_Project">
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+            <End Role="Tbl_Project1" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Project_Tbl_Project1" Association="Self.FK_Tbl_Project_Tbl_Project1">
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+            <End Role="Tbl_Project1" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="Tbl_Project_Tbl_Category" Association="Self.Tbl_Project_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -157,13 +249,6 @@
           <Property Name="Description1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Desciption2" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="Degree" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Tbl_Category">
-          <Key>
-            <PropertyRef Name="CategoryID" />
-          </Key>
-          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tbl_Contact">
           <Key>
@@ -248,7 +333,6 @@
         </EntityType>
         <EntityContainer Name="DbAcunMedyaProject1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tbl_About" EntityType="Self.Tbl_About" />
-          <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" />
           <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" />
           <EntitySet Name="Tbl_Education" EntityType="Self.Tbl_Education" />
           <EntitySet Name="Tbl_Job" EntityType="Self.Tbl_Job" />
@@ -257,8 +341,51 @@
           <EntitySet Name="Tbl_Skills" EntityType="Self.Tbl_Skills" />
           <EntitySet Name="Tbl_Slider" EntityType="Self.Tbl_Slider" />
           <EntitySet Name="Tbl_Testimonial" EntityType="Self.Tbl_Testimonial" />
+          <EntitySet Name="sysdiagrams" EntityType="DbAcunMedyaProject1Model.sysdiagrams" />
+          <EntitySet Name="Tbl_Category" EntityType="DbAcunMedyaProject1Model.Tbl_Category" />
           <EntitySet Name="Tbl_Project" EntityType="DbAcunMedyaProject1Model.Tbl_Project" />
-        </EntityContainer>
+          <AssociationSet Name="FK_Project_Category" Association="DbAcunMedyaProject1Model.FK_Project_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Tbl_Category" Association="DbAcunMedyaProject1Model.FK_Tbl_Category_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Category1" EntitySet="Tbl_Category" />
+          </AssociationSet>
+          <AssociationSet Name="Tbl_Project_Tbl_Category" Association="DbAcunMedyaProject1Model.Tbl_Project_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Project_Tbl_Project" Association="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project">
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+            <End Role="Tbl_Project1" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Project_Tbl_Project1" Association="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project1">
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+            <End Role="Tbl_Project1" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Project" Relationship="DbAcunMedyaProject1Model.FK_Project_Category" FromRole="Tbl_Category" ToRole="Tbl_Project" />
+          <NavigationProperty Name="Tbl_Category1" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Category1" />
+          <NavigationProperty Name="Tbl_Category2" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category1" ToRole="Tbl_Category" />
+          <NavigationProperty Name="Tbl_Project1" Relationship="DbAcunMedyaProject1Model.Tbl_Project_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Project" />
+        </EntityType>
         <EntityType Name="Tbl_Project">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -270,8 +397,75 @@
           <Property Name="Image1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Image2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Image3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="Tbl_Category" Relationship="DbAcunMedyaProject1Model.FK_Project_Category" FromRole="Tbl_Project" ToRole="Tbl_Category" />
+          <NavigationProperty Name="Tbl_Category1" Relationship="DbAcunMedyaProject1Model.Tbl_Project_Tbl_Category" FromRole="Tbl_Project" ToRole="Tbl_Category" />
+          <NavigationProperty Name="Tbl_Project1" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project" FromRole="Tbl_Project" ToRole="Tbl_Project1" />
+          <NavigationProperty Name="Tbl_Project2" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project" FromRole="Tbl_Project1" ToRole="Tbl_Project" />
+          <NavigationProperty Name="Tbl_Project11" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project1" FromRole="Tbl_Project" ToRole="Tbl_Project1" />
+          <NavigationProperty Name="Tbl_Project3" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Project1" FromRole="Tbl_Project1" ToRole="Tbl_Project" />
         </EntityType>
-      </Schema>
+        <Association Name="FK_Project_Category">
+          <End Type="DbAcunMedyaProject1Model.Tbl_Category" Role="Tbl_Category" Multiplicity="0..1" />
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Project">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Tbl_Category">
+          <End Type="DbAcunMedyaProject1Model.Tbl_Category" Role="Tbl_Category" Multiplicity="1" />
+          <End Type="DbAcunMedyaProject1Model.Tbl_Category" Role="Tbl_Category1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Category1">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tbl_Project_Tbl_Category">
+          <End Type="DbAcunMedyaProject1Model.Tbl_Category" Role="Tbl_Category" Multiplicity="0..1" />
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Project">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Project_Tbl_Project">
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project" Multiplicity="1" />
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Tbl_Project1">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Project_Tbl_Project1">
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project" Multiplicity="1" />
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Tbl_Project1">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -293,14 +487,6 @@
                 <ScalarProperty Name="Description1" ColumnName="Description1" />
                 <ScalarProperty Name="Desciption2" ColumnName="Desciption2" />
                 <ScalarProperty Name="Degree" ColumnName="Degree" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Category">
-            <EntityTypeMapping TypeName="DbAcunMedyaProject1Model.Tbl_Category">
-              <MappingFragment StoreEntitySet="Tbl_Category">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -393,9 +579,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbAcunMedyaProject1Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Category">
+            <EntityTypeMapping TypeName="DbAcunMedyaProject1Model.Tbl_Category">
+              <MappingFragment StoreEntitySet="Tbl_Category">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tbl_Project">
             <EntityTypeMapping TypeName="DbAcunMedyaProject1Model.Tbl_Project">
               <MappingFragment StoreEntitySet="Tbl_Project">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Image3" ColumnName="Image3" />
                 <ScalarProperty Name="Image2" ColumnName="Image2" />
                 <ScalarProperty Name="Image1" ColumnName="Image1" />

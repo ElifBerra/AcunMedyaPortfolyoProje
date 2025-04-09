@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
 
 <h2> Burası kategori sayfası</h2>
@@ -20,6 +21,7 @@
             @foreach (var item in Model)
             {
 
+                count++;
 
                 <tr>
                     <td>@item.CategoryID</td>

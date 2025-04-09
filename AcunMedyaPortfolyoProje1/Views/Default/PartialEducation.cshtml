@@ -1,0 +1,59 @@
+﻿﻿@model List<AcunMedyaPortfolyoProje1.Models.Tbl_Education>
+
+
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+
+
+
+    <h3 class="resume-title">Education</h3>
+    <div class="resume-item">
+        <h4>@Model[0].Name</h4>
+        <h5>
+            @(Model[0].StartYear.HasValue ? Model[0].StartYear.Value.ToString("dd/MM/yyyy") : "")
+            -
+            @(Model[0].EndYear.HasValue ? Model[0].EndYear.Value.ToString("dd/MM/yyyy") : "Present")
+
+        </h5>
+        <p><em>@Model[0].Section</em></p>
+        <p>@Model[0].Description</p>
+    </div><!-- Edn Resume Item -->
+
+    <h3 class="resume-title">Volunter Experiences</h3>
+    <div class="resume-item pb-0">
+        <h4> Event Coordination Leader</h4>
+        <p><em>Huawei Student Developers Zonguldak Bülent Ecevit University</em></p>
+        <ul>
+            <li>
+                I planned events for the community and coordinated my team to implement them. 
+                I gained experience in event planning and organization. I also gained experience on how to manage a team of +10 people.
+                I will continue to work with all my strength to improve both my team and myself!
+            </li>
+        </ul>
+    </div>
+
+    <div class="resume-item pb-0">
+        <h4> Promotion & Design Committee Leader</h4>
+        <p><em>Huawei Student Developers Zonguldak Bülent Ecevit University </em></p>
+        <ul>
+            <li>
+                Activities and trainings to be held within the community;
+                I led this committee, which ensured that posters and captions were prepared and announced to university students and community members.
+                In this way, I improved my teamwork and leadership skills
+            </li>
+        </ul>
+    </div>
+
+    <div class="resume-item pb-0">
+        <h4> Event Coordination Co-Lead</h4>
+        <p><em>Huawei Student Developers Zonguldak Bülent Ecevit University</em></p>
+        <ul>
+            <li>
+                We planned events within the community and put them into action.
+                While co‑leading various events, especially 5 Speak for The Future, I gained experience in event planning and organizing
+            </li>
+        </ul>
+    </div>
+    <!-- Edn Resume Item -->
+
+</div>

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
 
 <h2>Burası Proje sayfası</h2>
@@ -12,12 +13,13 @@
         <thead>
             <tr>
                 <th>Project ID</th>
-                <th>Proje İsmi</th>
+                <th>Project Name</th>
                 <th>Description</th>
                 <th>Project Link</th>
                 <th>Image 1</th>
                 <th>Image 2</th>
-                <th>Image 3</th>              
+                <th>Image 3</th>   
+                <th>Category</th>
 
                 <th>Güncelle</th>
                 <th>Sil</th>
@@ -26,6 +28,8 @@
         <tbody>
             @foreach (var item in Model)
             {
+                count++;
+
                 <tr>
                     <td>@item.ProjectID</td>
                     <td>@item.ProjectName</td>
@@ -33,12 +37,14 @@
                     <td>@item.ProjectLink</td>
                     <td><img src="@item.Image1" style="width:50px"/></td>
                     <td><img src="@item.Image2" style="width:50px" /></td>
-                    <td><img src="@item.Image3" style="width:50px" /></td>                    
+                    <td><img src="@item.Image3" style="width:50px" /></td>    
+                    <td>@item.Tbl_Category.CategoryName</td>
 
                     <td><a href="/Project/UpdateProject/@item.ProjectID" class="btn btn-success">Güncelle</a></td>
                     <td><a href="/Project/RemoveProject/@item.ProjectID" class="btn btn-danger">Sil</a></td>
                 </tr>
             }
+
         </tbody>
     </table>
     <a href="/Project/CreateProject/" class="btn btn-secondary">Oluştur</a>

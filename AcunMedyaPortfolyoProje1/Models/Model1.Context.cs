@@ -26,7 +26,6 @@ namespace AcunMedyaPortfolyoProje1.Models
         }
     
         public virtual DbSet<Tbl_About> Tbl_About { get; set; }
-        public virtual DbSet<Tbl_Category> Tbl_Category { get; set; }
         public virtual DbSet<Tbl_Contact> Tbl_Contact { get; set; }
         public virtual DbSet<Tbl_Education> Tbl_Education { get; set; }
         public virtual DbSet<Tbl_Job> Tbl_Job { get; set; }
@@ -35,6 +34,8 @@ namespace AcunMedyaPortfolyoProje1.Models
         public virtual DbSet<Tbl_Skills> Tbl_Skills { get; set; }
         public virtual DbSet<Tbl_Slider> Tbl_Slider { get; set; }
         public virtual DbSet<Tbl_Testimonial> Tbl_Testimonial { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Tbl_Category> Tbl_Category { get; set; }
         public virtual DbSet<Tbl_Project> Tbl_Project { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AcunMedyaPortfolyoProje1.Models;
+
 namespace AcunMedyaPortfolyoProje1.Controllers
 {
     public class JobsController : Controller
